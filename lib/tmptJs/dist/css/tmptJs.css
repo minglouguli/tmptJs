@@ -1,0 +1,149 @@
+﻿/*******************about Tmpt******************/
+.tmpt-load {
+    background: url(../image/loading.gif) 50% 50% no-repeat;
+    background-size: 50px 50px;
+}
+
+    .tmpt-load > * {
+        visibility: hidden;
+    }
+
+/*.content.tmpt-load-hide,  .tmpt-load.tmpt-load-hide {
+        background: initial;
+    }*/
+
+.tmpt-load-hide {
+    visibility: hidden;
+}
+
+.tmpt-hide {
+    display: none;
+}
+
+/*-----------tab Òþ²Ø---------------*/
+.tmpt-tab + .tmpt-tab {
+    display: none;
+}
+
+.tmpt-slide + .tmpt-slide {
+    display: none;
+}
+
+.slide-content + .slide-content {
+    display: none;
+}
+/*-------------load-------------------*/
+
+#tmpt-dialog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    height: 150px;
+    width: 150px;
+    margin-top: -30px;
+    margin-left: -30px;
+    -moz-border-radius: 50% 50% 50% 50%;
+    -webkit-border-radius: 50% 50% 50% 50%;
+    border-radius: 50% 50% 50% 50% !important;
+    z-index: 100000;
+}
+
+.object {
+    width: 10px;
+    height: 10px;
+    background-color: #cacbd1;
+    position: absolute;
+    -moz-border-radius: 50% 50% 50% 50% !important;
+    -webkit-border-radius: 50% 50% 50% 50% !important;
+    border-radius: 50% 50% 50% 50% !important;
+    -webkit-animation: animate 0.8s infinite;
+    -moz-animation: animate 08s infinite;
+    -o-animation: animate 08s infinite;
+    animation: animate 0.8s infinite;
+}
+
+
+#object_one {
+    top: 9px;
+    left: 9px;
+}
+
+#object_two {
+    top: 0px;
+    left: 30px;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+#object_three {
+    top: 9px;
+    left: 51px;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+#object_four {
+    top: 30px;
+    left: 60px;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+#object_five {
+    top: 51px;
+    left: 51px;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+#object_six {
+    top: 60px;
+    left: 30px;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+#object_seven {
+    top: 51px;
+    left: 9px;
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+#object_eight {
+    top: 30px;
+    left: 0px;
+    -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+
+
+@-webkit-keyframes animate {
+
+    25% {
+        -ms-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+
+
+    75% {
+        -ms-transform: scale(0);
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+}
+
+@keyframes animate {
+    50% {
+        -ms-transform: scale(1.5,1.5);
+        -webkit-transform: scale(1.5,1.5);
+        transform: scale(1.5,1.5);
+    }
+
+    100% {
+        -ms-transform: scale(1,1);
+        -webkit-transform: scale(1,1);
+        transform: scale(1,1);
+    }
+}

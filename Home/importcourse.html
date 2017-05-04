@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        ImportCourse
+    </title>
+    <link href="../lib/tmptJs/dist/css/tmptJs.css" rel="stylesheet" />
+    <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.js"></script>  
+    <script src="../lib/tmptJs/dist/js/tempJs.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12" style="height:100px;"></div>
+        <div id="menu" class="col-md-3">
+            <ul class="list-group tmpt-load">
+                <li class="list-group-item" tmpt-each="Name">
+                    {{$value}}
+                </li>
+            </ul>
+        </div>
+        <div id="importcourse" class="jyTableView col-md-9">
+
+            <div class="e-ext">
+                <div style="clear:left;">
+                </div>
+            </div>
+            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper dataTables_extended_wrapper dataTables_extended_wrapper no-footer">
+                <div class="tablewrap">
+                    <table class="table table-striped table-bordered table-hover cell-border y_datatable stripe row-border order-column dataTable no-footer" cellspacing="0" width="100%" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                        <thead id="courseHeader">
+                            <tr role="row" class="heading">
+                                <th style="width:20px;" class="sorting_disabled" rowspan="1" colspan="1" aria-label="">
+                                    <div class="checker">
+                                        <span>
+                                            <input class="y_batchcheckbox" type="checkbox">
+                                        </span>
+                                    </div>
+                                </th>
+                                <th tmpt-each="HeadList" style="width:60px" title="{{Name}}" class="sorting_desc" rowspan="1" colspan="1" aria-label="{{Name}}">
+                                    {{Name}}
+                                </th>
+                            </tr>
+                            <tr role="row" class="filter">
+                                <td rowspan="1" colspan="1"></td>
+                                <td tmpt-each="HeadList" rowspan="1" colspan="1" id="mainPortalId" data-container="PortalId">
+                                    <input type="text" class="form-control form-filter input-sm" name="{{Code}}">
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id="courseBody">
+                            <tr tmpt-each="DataList" role="row" class="odd" style="height: 49px;">
+                                <td>
+                                    {{$index}}
+                                </td>
+                                <td tmpt-each="$last.HeadList" class="sorting_1">
+                                    {{get($last,Code)}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="dataTables_paginate paging_bootstrap_extended" id="DataTables_Table_1_paginate">
+                            <div class="pagination-panel">
+                                当前页 <a href="#" class="btn btn-sm default prev disabled" title="前一页">
+                                    <i class="fa fa-angle-left">
+                                    </i>
+                                </a>
+                                <input type="text" class="pagination-panel-input form-control input-mini input-inline input-sm" maxlenght="5" style="text-align:center; margin: 0 5px;">
+                                <a href="#" class="btn btn-sm default next" title="下一页">
+                                    <i class="fa fa-angle-right">
+                                    </i>
+                                </a>
+                                总 <span class="pagination-panel-total">
+                                    315
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dataTables_length" id="DataTables_Table_1_length">
+                            <label>
+                                显示 <select name="DataTables_Table_1_length" aria-controls="DataTables_Table_1" class="form-control input-xsmall input-sm input-inline">
+                                    <option value="2">
+                                        2
+                                    </option>
+                                    <option value="10">
+                                        10
+                                    </option>
+                                    <option value="20">
+                                        20
+                                    </option>
+                                    <option value="50">
+                                        50
+                                    </option>
+                                    <option value="100">
+                                        100
+                                    </option>
+                                    <option value="150">
+                                        150
+                                    </option>
+                                    <option value="-1">
+                                        All
+                                    </option>
+                                </select>
+                                项结果
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dataTables_info" id="DataTables_Table_1_info" role="status" aria-live="polite">
+                            显示第 1 至 10 项结果，共 3,146 项
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var headList = [{
+            Name: "课程名称",
+            Code: "Name"
+        }, {
+            Name: "课程编码",
+            Code: "Code"
+        }, {
+            Name: "课程助记码",
+            Code: "NickName"
+        }, {
+            Name: "图片",
+            Code: "Img"
+        }, {
+            Name: "缩略图",
+            Code: "Thumbnail"
+        }, {
+            Name: "讲师",
+            Code: "Teacher"
+        }, {
+            Name: "职称",
+            Code: "JobTitle"
+        }, {
+            Name: "课程类型",
+            Code: "Type"
+        }, {
+            Name: "课程标准",
+            Code: "Standards"
+        }, {
+            Name: "课程介绍",
+            Code: "Description"
+        }, {
+            Name: "课程时长",
+            Code: "Duration"
+        }, {
+            Name: "课程大小",
+            Code: "CourseSize"
+        }]
+        var courseList = [];
+        for (var i = 1; i < 10 + 1; i++) {
+            var course = {};
+            var duration = Math.random().toFixed(2);
+            courseList.push({
+                Code: "C000" + i,
+                Name: "课程" + i,
+                NickName: "",
+                Img: "12324325345.jpg",
+                Thumbnail: "12324325345.jpg",
+                Teacher: "老师" + i,
+                JobTitle: "职称",
+                Type: "ThreeScreenCourse",
+                Standards: "JYAicc",
+                Description: "课程介绍" + i,
+                Duration: duration,
+                CourseSize: duration * 99 + "M"
+            });
+        }
+
+        //var ajax1 = $.ajax({
+        //    url: "api/page/languge1",
+        //    success: function (d) {
+
+        //    }
+        //});
+        //$.ajax(ajax1, ajax2, ajax3).done(function () {
+        //    $R("courseBody", {
+        //        HeadList: headList,
+        //        DataList: courseList
+        //    })
+        //});
+        //$dom.renderFun("getCourseType", function () {
+
+        //});
+        //$dom.renderFun("getCourseStandards", function () {
+
+        //});
+        //$dom.renderFun("", function () {
+
+        //});
+
+        $R("menu",
+            {
+                Name: ["单视频导入", "精品课程导入", "H5视频导入", "Scorm视频导入"]
+            });
+
+        $R("courseHeader",
+            {
+                HeadList: headList
+            });
+
+        $R("courseBody", {
+            HeadList: headList,
+            DataList: courseList
+        })
+    </script>
+</body>
+</html>
